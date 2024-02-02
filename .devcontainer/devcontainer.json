@@ -1,0 +1,53 @@
+{
+    "name": "FastAPI Practice",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/src",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "njpwerner.autodocstring",
+                "ms-python.black-formatter",
+                "sohamkamani.code-eol",
+                "ms-python.flake8",
+                "mhutchie.git-graph",
+                "donjayamanne.githistory",
+                "eamodio.gitlens",
+                "oderwat.indent-rainbow",
+                "ms-python.isort",
+                "MS-CEINTL.vscode-language-pack-ja",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.debugpy"
+            ],
+            "settings": {
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "diffEditor.ignoreTrimWhitespace": false,
+                    "editor.formatOnType": true,
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": "explicit"
+                    }
+                },
+                "editor.renderWhitespace": "all",
+                "files.trimTrailingWhitespace": true,
+                "black-formatter.args": [
+                    "--line-length=79"
+                ],
+                "isort.args":[
+                    "--profile=black"
+                ],
+                "flake8.args": [
+                    "--max-line-length=79",
+                    "--max-doc-length=72",
+                    "--indent-size=4",
+                    "--max-complexity=10"
+                ],
+                "python.analysis.typeCheckingMode": "strict",
+                "files.eol": "\n",
+                "editor.tabSize": 4
+            }
+        }
+    }
+}

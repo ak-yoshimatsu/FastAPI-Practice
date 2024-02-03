@@ -1,8 +1,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 
-path = "mysql+pymysql://fastapi:@127.0.0.1:3306/drowssap"
+# from sqlmodel import create_engine
+
+path = "mysql+pymysql://fastapi:drowssap@db:3306/fastapi"
 
 # Engine の作成
-Engine = create_engine(path, encoding="utf-8", echo=False)
+Engine = create_engine(path, echo=True)
 Base = declarative_base()

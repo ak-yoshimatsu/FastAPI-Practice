@@ -18,17 +18,6 @@ services:
     environment:
       - WATCHFILES_FORCE_POLLING=true
 
-  # db:
-  #   image: mysql:8.0
-  #   environment:
-  #     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes' # rootアカウントをパスワードなしで作成
-  #     MYSQL_DATABASE: 'fastapi'
-  #     TZ: 'Asia/Tokyo'
-  #   volumes:
-  #     - mysql_data:/var/lib/mysql
-  #   command: --default-authentication-plugin=mysql_native_password
-  #   ports:
-  #     - 33306:3306
   db:
     build: ./docker/mysql
     container_name: mysql
@@ -38,7 +27,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
-      - mysql_data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
 
   minio:
     build: ./docker/minio

@@ -2,9 +2,9 @@ from typing import Optional
 
 from sqlmodel import Field, SQLModel
 
-from app.databases import Base
+# from app.databases import Base
 
-SQLModel.metadata = Base.metadata
+# SQLModel.metadata = Base.metadata
 
 
 class TestUser(SQLModel, table=True):
@@ -14,3 +14,9 @@ class TestUser(SQLModel, table=True):
     name: str = Field(max_length=32)
     email: str = Field(max_length=64)
     password: str = Field(max_length=64)
+
+
+class UserCreate(SQLModel):
+    name: str
+    email: str
+    password: str

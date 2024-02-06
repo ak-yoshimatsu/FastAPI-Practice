@@ -5,9 +5,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
-# from app.databases import Base
-from app.s1.models import users  # noqa
-from app.s2.models import patient  # noqa
+from app.databases.models import User, Patient, Posts, Comments  # NOQA
 
 from sqlmodel import SQLModel
 

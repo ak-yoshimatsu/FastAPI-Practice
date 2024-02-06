@@ -1,23 +1,23 @@
 from fastapi import APIRouter, Depends
-from app.databases import get_section
-from app.s1.models.users import UserCreate, TestUser
 from sqlmodel import Session, select
+
+from app.databases.session import get_section
+from app.s1.models.users import UserCreate
+from app.databases.models import User
 
 router = APIRouter()
 
 
 @router.get("/")
 def index(session: Session = Depends(get_section)):
-    result = session.execute(select(TestUser))
+    result = session.execute(select(User))
     users = result.scalars().all()
     return {"data": users}
 
 
 @router.post("/")
 def store(users: UserCreate, session: Session = Depends(get_section)):
-    users = TestUser(
-        name=users.name, email=users.email, password=users.password
-    )
+    users = User(name=users.name, email=users.email, password=users.password)
     session.add(users)
     session.commit()
     session.refresh(users)

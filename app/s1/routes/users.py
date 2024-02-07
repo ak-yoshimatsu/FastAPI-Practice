@@ -1,17 +1,16 @@
 from fastapi import APIRouter, Depends
 from sqlmodel import Session, select
 
+from app.databases.models import User
 from app.databases.session import get_section
 from app.s1.models.users import UserCreate
-from app.databases.models import User
 
 router = APIRouter()
 
 
 @router.get("/")
 def index(session: Session = Depends(get_section)):
-    result = session.execute(select(User))
-    users = result.scalars().all()
+    users = session.exec(select(User)).all()
     return {"data": users}
 
 

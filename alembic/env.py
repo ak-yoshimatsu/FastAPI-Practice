@@ -5,11 +5,11 @@ from sqlalchemy import pool
 
 from alembic import context
 
-# from app.databases import Base
-from app.s1.models import users  # noqa
-from app.s2.models import patient  # noqa
+from app.databases.models import User, Patient, Posts, Comments  # NOQA
 
 from sqlmodel import SQLModel
+
+import os
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -64,6 +64,14 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
+    config.set_section_option("alembic", "MYSQL_USER", os.environ.get("MYSQL_USER"))
+    config.set_section_option(
+        "alembic", "MYSQL_PASSWORD", os.environ.get("MYSQL_PASSWORD")
+    )
+    config.set_section_option(
+        "alembic", "MYSQL_DATABASE", os.environ.get("MYSQL_DATABASE")
+    )
+
     connectable = engine_from_config(
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",
@@ -71,9 +79,7 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
-        context.configure(
-            connection=connection, target_metadata=target_metadata
-        )
+        context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():
             context.run_migrations()

@@ -890,6 +890,37 @@ files = [
 six = ">=1.5"
 
 [[package]]
+name = "python-multipart"
+version = "0.0.9"
+description = "A streaming multipart parser for Python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "python_multipart-0.0.9-py3-none-any.whl", hash = "sha256:97ca7b8ea7b05f977dc3849c3ba99d51689822fab725c3703af7c866a0c2b215"},
+    {file = "python_multipart-0.0.9.tar.gz", hash = "sha256:03f54688c663f1b7977105f021043b0793151e4cb1c1a9d4a11fc13d622c4026"},
+]
+
+[package.extras]
+dev = ["atomicwrites (==1.4.1)", "attrs (==23.2.0)", "coverage (==7.4.1)", "hatch", "invoke (==2.2.0)", "more-itertools (==10.2.0)", "pbr (==6.0.0)", "pluggy (==1.4.0)", "py (==1.11.0)", "pytest (==8.0.0)", "pytest-cov (==4.1.0)", "pytest-timeout (==2.2.0)", "pyyaml (==6.0.1)", "ruff (==0.2.1)"]
+
+[[package]]
+name = "returns"
+version = "0.22.0"
+description = "Make your functions return something meaningful, typed, and safe!"
+optional = false
+python-versions = ">=3.8.1,<4.0"
+files = [
+    {file = "returns-0.22.0-py3-none-any.whl", hash = "sha256:d38d6324692eeb29ec4bd698e1b859ec0ac79fb2c17bf0d302f92c8c42ef35c1"},
+    {file = "returns-0.22.0.tar.gz", hash = "sha256:c7bd85bd1e0041b44fe46c7e2f68fcc76a0546142c876229e395174bcd674f37"},
+]
+
+[package.dependencies]
+typing-extensions = ">=4.0,<5.0"
+
+[package.extras]
+compatible-mypy = ["mypy (>=1.5,<1.6)"]
+
+[[package]]
 name = "s3transfer"
 version = "0.10.0"
 description = "An Amazon S3 Transfer Manager"
@@ -1118,4 +1149,4 @@ standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "d8a9c88a036fb07f2439085a0f8e60d1890d39015c737f492c2bff3c75b5e08c"
+content-hash = "59f803ad6abdd4fb91432115a1ea2013c22e5ecc62b9ffb621bb116c9149ae86"

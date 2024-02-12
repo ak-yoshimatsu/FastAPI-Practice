@@ -1,4 +1,4 @@
-from sqlmodel import Field, SQLModel, Relationship, Column, String
+from sqlmodel import Column, Field, Relationship, SQLModel, String
 
 
 class User(SQLModel, table=True):
@@ -28,7 +28,7 @@ class Posts(SQLModel, table=True):
     title: str = Field(sa_column=Column(String(32)))
     content: str
 
-    user: User | None = Relationship(back_populates="has_posts")
+    # user: User | None = Relationship(back_populates="has_posts")
 
 
 class Comments(SQLModel, table=True):

@@ -1,4 +1,4 @@
-from sqlmodel import Field, SQLModel, Relationship, Column, String
+from sqlmodel import Column, Field, Relationship, SQLModel, String
 
 
 class User(SQLModel, table=True):

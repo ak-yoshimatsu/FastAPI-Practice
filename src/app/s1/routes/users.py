@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
 from app.s1.schemas import users
-from app.s1.services.userServices import UserService
+from app.s1.usecases.userServices import UserService
 
 router = APIRouter()
 

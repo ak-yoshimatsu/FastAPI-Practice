@@ -1,0 +1,7 @@
+[INFO] 2024-02-12 08:45:35,175 - Started server process [10]
+[INFO] 2024-02-12 08:45:35,175 - Waiting for application startup.
+[INFO] 2024-02-12 08:45:35,176 - Application startup complete.
+[INFO] 2024-02-12 08:55:57,073 - Shutting down
+[INFO] 2024-02-12 08:55:57,174 - Waiting for application shutdown.
+[INFO] 2024-02-12 08:55:57,174 - Application shutdown complete.
+[INFO] 2024-02-12 08:55:57,174 - Finished server process [10]

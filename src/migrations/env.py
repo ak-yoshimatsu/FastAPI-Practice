@@ -1,11 +1,12 @@
-import os
 from logging.config import fileConfig
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 from sqlmodel import SQLModel
 
-from app.models import users
+from app.models import users  # noqa # type: ignore
+
+from app.config import env
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -59,13 +60,31 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
-    # config.set_section_option("alembic", "MYSQL_USER", os.environ.get("MYSQL_USER"))
-    # config.set_section_option(
-    #     "alembic", "MYSQL_PASSWORD", os.environ.get("MYSQL_PASSWORD")
-    # )
-    # config.set_section_option(
-    #     "alembic", "MYSQL_DATABASE", os.environ.get("MYSQL_DATABASE")
-    # )
+    config.set_section_option(
+        "alembic",
+        "MYSQL_HOST",
+        env.MYSQL_HOST,  # type: ignore
+    )
+    config.set_section_option(
+        "alembic",
+        "MYSQL_PORT",
+        env.MYSQL_PORT,  # type: ignore
+    )
+    config.set_section_option(
+        "alembic",
+        "MYSQL_USER",
+        env.MYSQL_USER,  # type: ignore
+    )
+    config.set_section_option(
+        "alembic",
+        "MYSQL_PASSWORD",
+        env.MYSQL_PASSWORD,  # type: ignore
+    )
+    config.set_section_option(
+        "alembic",
+        "MYSQL_DATABASE",
+        env.MYSQL_DATABASE,  # type: ignore
+    )
     connectable = engine_from_config(
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",

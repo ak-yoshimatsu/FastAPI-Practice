@@ -5,7 +5,7 @@
 ### 2. パッケージをインストール
 
 ```bash
-docker compose run --rm --entrypoint "poetry run install --no-root" app
+docker compose run --rm --entrypoint "poetry install --no-root" app
 ```
 
 ### 3. コンテナ作成&起動

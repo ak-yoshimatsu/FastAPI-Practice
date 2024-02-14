@@ -1,6 +1,6 @@
 {
     "name": "FastAPI Practice",
-    "dockerComposeFile": "../docker-compose.yml",
+    "dockerComposeFile": "../docker/docker-compose.yml",
     "service": "app",
     "workspaceFolder": "/src",
     "customizations": {

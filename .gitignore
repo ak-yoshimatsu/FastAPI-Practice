@@ -3,3 +3,4 @@ __pycache__
 docker/minio/data
 docker/mailhog/maildir
 .env
+src/logs

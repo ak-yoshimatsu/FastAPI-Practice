@@ -1,6 +1,6 @@
 from sqlmodel import Session, create_engine
-from app.config import env
 
+from app.config import env
 
 path = (
     "mysql+pymysql://"
@@ -21,4 +21,7 @@ Engine = create_engine(path, echo=True)
 
 def get_section():
     with Session(Engine) as session:
-        yield session
+        try:
+            yield session
+        finally:
+            session.close()

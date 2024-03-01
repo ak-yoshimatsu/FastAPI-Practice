@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.s1.routes import patients
+from app.s1.routes import login, patients
 
 app = FastAPI()
 
@@ -30,3 +30,4 @@ app = FastAPI()
 #     return {"result": f"destroy id is {id}"}
 
 app.include_router(patients.router, prefix="/patients", tags=["patients"])
+app.include_router(login.router, prefix="/login", tags=["login"])

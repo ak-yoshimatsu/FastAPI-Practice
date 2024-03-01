@@ -43,7 +43,7 @@ def get_detail(
     detail = session.get(Patient, id)
     if not detail:
         raise HTTPException(status_code=404, detail="そんなのありませーん！")
-    return detai
+    return detail
 
 
 @router.patch(

@@ -53,7 +53,8 @@ loggers:
     level: INFO
     handlers: [file_handler]
   uvicorn.error:
-    level: ERROR
+    # level: ERROR
+    level: INFO
     handlers: [file_handler]
   uvicorn.access:
     level: INFO
@@ -61,3 +62,12 @@ loggers:
   sqlalchemy.engine.Engine:
     level: INFO
     handlers: [file_handler]
+  app:
+    handlers:
+      - file_handler
+    level: INFO
+root:
+  handlers:
+    - file_handler
+  level: DEBUG
+
